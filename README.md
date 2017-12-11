@@ -12,6 +12,8 @@ Las librerías necesarias para la correcta ejecución de este notebook son:
 - PySpark
 - Pymongo
 
+Nota: Este notebook esta disponible en [Github](https://github.com/ZzAntares/stock-recommendations-analysis).
+
 ## Estructura de los datos
 
 El dataset se compone de tres carpetas las cuales contienen 250, 252 y 253 archivos respectivamente:
@@ -484,71 +486,6 @@ recommendations.tail()
 
 
 ```python
-recommendations.avg_result.describe().reset_index().style.format({'avg_result': '{:.4f}'})
-```
-
-
-
-
-<style  type="text/css" >
-</style>  
-<table id="T_25c66428_dc94_11e7_a9b0_60f81db42270" > 
-<thead>    <tr> 
-        <th class="blank level0" ></th> 
-        <th class="col_heading level0 col0" >index</th> 
-        <th class="col_heading level0 col1" >avg_result</th> 
-    </tr></thead> 
-<tbody>    <tr> 
-        <th id="T_25c66428_dc94_11e7_a9b0_60f81db42270level0_row0" class="row_heading level0 row0" >0</th> 
-        <td id="T_25c66428_dc94_11e7_a9b0_60f81db42270row0_col0" class="data row0 col0" >count</td> 
-        <td id="T_25c66428_dc94_11e7_a9b0_60f81db42270row0_col1" class="data row0 col1" >3467031.0000</td> 
-    </tr>    <tr> 
-        <th id="T_25c66428_dc94_11e7_a9b0_60f81db42270level0_row1" class="row_heading level0 row1" >1</th> 
-        <td id="T_25c66428_dc94_11e7_a9b0_60f81db42270row1_col0" class="data row1 col0" >mean</td> 
-        <td id="T_25c66428_dc94_11e7_a9b0_60f81db42270row1_col1" class="data row1 col1" >1.0031</td> 
-    </tr>    <tr> 
-        <th id="T_25c66428_dc94_11e7_a9b0_60f81db42270level0_row2" class="row_heading level0 row2" >2</th> 
-        <td id="T_25c66428_dc94_11e7_a9b0_60f81db42270row2_col0" class="data row2 col0" >std</td> 
-        <td id="T_25c66428_dc94_11e7_a9b0_60f81db42270row2_col1" class="data row2 col1" >0.0341</td> 
-    </tr>    <tr> 
-        <th id="T_25c66428_dc94_11e7_a9b0_60f81db42270level0_row3" class="row_heading level0 row3" >3</th> 
-        <td id="T_25c66428_dc94_11e7_a9b0_60f81db42270row3_col0" class="data row3 col0" >min</td> 
-        <td id="T_25c66428_dc94_11e7_a9b0_60f81db42270row3_col1" class="data row3 col1" >0.2360</td> 
-    </tr>    <tr> 
-        <th id="T_25c66428_dc94_11e7_a9b0_60f81db42270level0_row4" class="row_heading level0 row4" >4</th> 
-        <td id="T_25c66428_dc94_11e7_a9b0_60f81db42270row4_col0" class="data row4 col0" >25%</td> 
-        <td id="T_25c66428_dc94_11e7_a9b0_60f81db42270row4_col1" class="data row4 col1" >0.9860</td> 
-    </tr>    <tr> 
-        <th id="T_25c66428_dc94_11e7_a9b0_60f81db42270level0_row5" class="row_heading level0 row5" >5</th> 
-        <td id="T_25c66428_dc94_11e7_a9b0_60f81db42270row5_col0" class="data row5 col0" >50%</td> 
-        <td id="T_25c66428_dc94_11e7_a9b0_60f81db42270row5_col1" class="data row5 col1" >1.0040</td> 
-    </tr>    <tr> 
-        <th id="T_25c66428_dc94_11e7_a9b0_60f81db42270level0_row6" class="row_heading level0 row6" >6</th> 
-        <td id="T_25c66428_dc94_11e7_a9b0_60f81db42270row6_col0" class="data row6 col0" >75%</td> 
-        <td id="T_25c66428_dc94_11e7_a9b0_60f81db42270row6_col1" class="data row6 col1" >1.0200</td> 
-    </tr>    <tr> 
-        <th id="T_25c66428_dc94_11e7_a9b0_60f81db42270level0_row7" class="row_heading level0 row7" >7</th> 
-        <td id="T_25c66428_dc94_11e7_a9b0_60f81db42270row7_col0" class="data row7 col0" >max</td> 
-        <td id="T_25c66428_dc94_11e7_a9b0_60f81db42270row7_col1" class="data row7 col1" >3.1090</td> 
-    </tr></tbody> 
-</table> 
-
-
-
-
-```python
-recommendations.avg_result.max()
-```
-
-
-
-
-    3.109
-
-
-
-
-```python
 # Convert string values to numerical
 recommendations['avg_result'] = recommendations['avg_result'].astype('float64')
 recommendations['result'] = recommendations['result'].astype('float64')
@@ -576,6 +513,71 @@ recommendations.dtypes
     result               float64
     ticker                object
     dtype: object
+
+
+
+
+```python
+recommendations.avg_result.describe().reset_index().style.format({'avg_result': '{:.4f}'})
+```
+
+
+
+
+<style  type="text/css" >
+</style>  
+<table id="T_143a93f4_dea4_11e7_bee6_60f81db42270" > 
+<thead>    <tr> 
+        <th class="blank level0" ></th> 
+        <th class="col_heading level0 col0" >index</th> 
+        <th class="col_heading level0 col1" >avg_result</th> 
+    </tr></thead> 
+<tbody>    <tr> 
+        <th id="T_143a93f4_dea4_11e7_bee6_60f81db42270level0_row0" class="row_heading level0 row0" >0</th> 
+        <td id="T_143a93f4_dea4_11e7_bee6_60f81db42270row0_col0" class="data row0 col0" >count</td> 
+        <td id="T_143a93f4_dea4_11e7_bee6_60f81db42270row0_col1" class="data row0 col1" >3467031.0000</td> 
+    </tr>    <tr> 
+        <th id="T_143a93f4_dea4_11e7_bee6_60f81db42270level0_row1" class="row_heading level0 row1" >1</th> 
+        <td id="T_143a93f4_dea4_11e7_bee6_60f81db42270row1_col0" class="data row1 col0" >mean</td> 
+        <td id="T_143a93f4_dea4_11e7_bee6_60f81db42270row1_col1" class="data row1 col1" >1.0031</td> 
+    </tr>    <tr> 
+        <th id="T_143a93f4_dea4_11e7_bee6_60f81db42270level0_row2" class="row_heading level0 row2" >2</th> 
+        <td id="T_143a93f4_dea4_11e7_bee6_60f81db42270row2_col0" class="data row2 col0" >std</td> 
+        <td id="T_143a93f4_dea4_11e7_bee6_60f81db42270row2_col1" class="data row2 col1" >0.0341</td> 
+    </tr>    <tr> 
+        <th id="T_143a93f4_dea4_11e7_bee6_60f81db42270level0_row3" class="row_heading level0 row3" >3</th> 
+        <td id="T_143a93f4_dea4_11e7_bee6_60f81db42270row3_col0" class="data row3 col0" >min</td> 
+        <td id="T_143a93f4_dea4_11e7_bee6_60f81db42270row3_col1" class="data row3 col1" >0.2360</td> 
+    </tr>    <tr> 
+        <th id="T_143a93f4_dea4_11e7_bee6_60f81db42270level0_row4" class="row_heading level0 row4" >4</th> 
+        <td id="T_143a93f4_dea4_11e7_bee6_60f81db42270row4_col0" class="data row4 col0" >25%</td> 
+        <td id="T_143a93f4_dea4_11e7_bee6_60f81db42270row4_col1" class="data row4 col1" >0.9860</td> 
+    </tr>    <tr> 
+        <th id="T_143a93f4_dea4_11e7_bee6_60f81db42270level0_row5" class="row_heading level0 row5" >5</th> 
+        <td id="T_143a93f4_dea4_11e7_bee6_60f81db42270row5_col0" class="data row5 col0" >50%</td> 
+        <td id="T_143a93f4_dea4_11e7_bee6_60f81db42270row5_col1" class="data row5 col1" >1.0040</td> 
+    </tr>    <tr> 
+        <th id="T_143a93f4_dea4_11e7_bee6_60f81db42270level0_row6" class="row_heading level0 row6" >6</th> 
+        <td id="T_143a93f4_dea4_11e7_bee6_60f81db42270row6_col0" class="data row6 col0" >75%</td> 
+        <td id="T_143a93f4_dea4_11e7_bee6_60f81db42270row6_col1" class="data row6 col1" >1.0200</td> 
+    </tr>    <tr> 
+        <th id="T_143a93f4_dea4_11e7_bee6_60f81db42270level0_row7" class="row_heading level0 row7" >7</th> 
+        <td id="T_143a93f4_dea4_11e7_bee6_60f81db42270row7_col0" class="data row7 col0" >max</td> 
+        <td id="T_143a93f4_dea4_11e7_bee6_60f81db42270row7_col1" class="data row7 col1" >3.1090</td> 
+    </tr></tbody> 
+</table> 
+
+
+
+
+```python
+recommendations.avg_result.max()
+```
+
+
+
+
+    3.109
 
 
 
@@ -621,6 +623,8 @@ plt.show()
 
 ![png](output_45_0.png)
 
+
+Se genera la columna "_outcome_" la cuál servirá para agrupar las recomendaciones por _exitosas_, _neutras_ y _erróneas_.
 
 
 ```python
@@ -753,29 +757,38 @@ Analizamos el porcentaje de efectividad de las recomendaciones realizada por la 
 
 
 ```python
-total = len(recommendations)
-outcomes = recommendations.groupby('outcome').size()
+outcomes.plot(
+    kind='pie',
+    figsize=(10, 5),
+    title='Recommendation outcome distribution',
+    colors=['#03A9F4', '#E91E63', '#009688'],
+    labels=map('{:.2f}%'.format, outcomes.values / len(recommendations) * 100)
+)
 
-print('Successful recommendations: {:.2f}%'.format(outcomes['successful'] / total * 100))
-print('Unsuccessful recommendations: {:.2f}%'.format(outcomes['unsuccessful'] / total * 100))
-print('Unchanged recommendations: {:.2f}%'.format(outcomes['unchanged'] / total * 100))
+plt.legend(list(map(str.capitalize, outcomes.index.values)))
+plt.ylabel('')
+plt.axis('equal')
+plt.show()
 ```
 
-    Successful recommendations: 52.56%
-    Unsuccessful recommendations: 45.86%
-    Unchanged recommendations: 1.58%
+
+![png](output_49_0.png)
 
 
 
 ```python
-recommendations.groupby('outcome').size().sort_values().plot(kind='bar', title='Recommendation outcome distribution', color=['#03A9F4', '#E91E63', '#009688'])
+outcomes.plot(
+    kind='bar',
+    title='Recommendation outcome distribution',
+    color=['#03A9F4', '#E91E63', '#009688'])
+
 plt.xlabel('Outcome')
 plt.ylabel('Recommendations made')
 plt.show()
 ```
 
 
-![png](output_49_0.png)
+![png](output_50_0.png)
 
 
 La efectividad de la recomendación por el tipo de posición:
@@ -784,11 +797,13 @@ La efectividad de la recomendación por el tipo de posición:
 ```python
 recommendations.groupby(['outcome', 'position']).size().unstack().plot(kind='bar', stacked=True)
 plt.legend(['Long', 'Short'])
+plt.xlabel('Outcome')
+plt.ylabel('Rcecommendations made')
 plt.show()
 ```
 
 
-![png](output_51_0.png)
+![png](output_52_0.png)
 
 
 Aqui se observa cuales son los top 3 portafolios con el mejor resultado y la fecha en la que se hizo la recomendación:
@@ -930,7 +945,7 @@ plt.show()
 ```
 
 
-![png](output_57_0.png)
+![png](output_58_0.png)
 
 
 Se observa que el stocks más recomendado en los portafolios fue AAPL:
@@ -946,7 +961,8 @@ print('Number of unique stocks recommended:', len(stocks))
 
 
 ```python
-stocks.size().sort_values(ascending=False).head(10)
+top_stocks = stocks.size().sort_values(ascending=False)
+top_stocks.head(10)
 ```
 
 
@@ -969,6 +985,23 @@ stocks.size().sort_values(ascending=False).head(10)
 
 
 ```python
+top_stocks.head(20).plot(
+    kind='bar',
+    figsize=(15, 5),
+    title='Top 20 Most recommended stocks'
+)
+
+plt.xlabel('Ticker')
+plt.ylabel('# Recommendations')
+plt.show()
+```
+
+
+![png](output_62_0.png)
+
+
+
+```python
 recommendations['date'] = pd.to_datetime(recommendations.date)
 ```
 
@@ -979,7 +1012,7 @@ recommendations = recommendations.set_index('date')
 
 
 ```python
-recommendations.head()
+recommendations.head(3)
 ```
 
 
@@ -1068,32 +1101,6 @@ recommendations.head()
       <td>PM</td>
       <td>successful</td>
     </tr>
-    <tr>
-      <th>2012-03-27</th>
-      <td>0.993</td>
-      <td>2</td>
-      <td>Big_100_2_LONG_SHORT_F</td>
-      <td>L</td>
-      <td>38.76</td>
-      <td>37.95</td>
-      <td>2</td>
-      <td>0.979</td>
-      <td>VZ</td>
-      <td>unsuccessful</td>
-    </tr>
-    <tr>
-      <th>2012-03-27</th>
-      <td>0.994</td>
-      <td>3</td>
-      <td>Big_100_2_LONG_SHORT_F</td>
-      <td>S</td>
-      <td>119.98</td>
-      <td>118.84</td>
-      <td>2</td>
-      <td>0.990</td>
-      <td>V</td>
-      <td>unsuccessful</td>
-    </tr>
   </tbody>
 </table>
 </div>
@@ -1104,21 +1111,26 @@ Cantidad de recomendaciones a través de los años:
 
 
 ```python
-recommendations.groupby([recommendations.index.year, recommendations.index.month]).size().plot(title='Recommendations made through the years 2012 - 2014', figsize=(18, 5))
+active_recommendations = recommendations[recommendations.index.year != 2015]
+```
+
+
+```python
+active_recommendations.groupby([active_recommendations.index.year, active_recommendations.index.month]).size().plot(title='Recommendations made through the years 2012 - 2014', figsize=(18, 5))
 plt.xlabel('(Year, Month)')
 plt.ylabel('Recommendations made')
 plt.show()
 ```
 
 
-![png](output_65_0.png)
+![png](output_68_0.png)
 
 
 Cantidad de recomendaciones exitosas a través de los años
 
 
 ```python
-sr = recommendations[recommendations.outcome == 'successful']
+sr = active_recommendations[active_recommendations.outcome == 'successful']
 sr.groupby([sr.index.year, sr.index.month]).size().plot(title='Successful recommendations through the years', figsize=(18, 5), color='green')
 
 plt.xlabel('(Year, Month)')
@@ -1127,5 +1139,47 @@ plt.show()
 ```
 
 
-![png](output_67_0.png)
+![png](output_70_0.png)
+
+
+
+```python
+ax = active_recommendations.groupby([
+    active_recommendations.index.year, active_recommendations.index.month
+]).size().plot(figsize=(18, 5), color='blue')
+
+sr = active_recommendations[active_recommendations.outcome == 'successful']
+fr = active_recommendations[active_recommendations.outcome == 'unsuccessful']
+
+sr.groupby([sr.index.year, sr.index.month]).size().plot(ax=ax, figsize=(18, 5), color='green')
+fr.groupby([fr.index.year, fr.index.month]).size().plot(ax=ax, figsize=(18, 5), color='red')
+
+plt.legend(['All', 'Successful', 'Unsuccessful'])
+plt.title('Recommendations made through the years 2012 - 2014')
+plt.ylabel('# Recommendations made')
+plt.xlabel('(Year, Month)')
+plt.show()
+```
+
+
+![png](output_71_0.png)
+
+
+
+```python
+aapl = active_recommendations[active_recommendations.ticker == 'AAPL']
+ax = aapl.groupby([aapl.index.year, aapl.index.month]).size().plot(figsize=(18, 5), color='skyblue')
+
+amzn = active_recommendations[active_recommendations.ticker == 'AMZN']
+amzn.groupby([amzn.index.year, amzn.index.month]).size().plot(ax=ax, figsize=(18, 5), color='orange')
+
+plt.title('AAPL vs AMZN recommendation frequency over the years 2012 - 2014')
+plt.legend(['AALP', 'AMZN'])
+plt.ylabel('# Recommendations made')
+plt.xlabel('(Year, Month)')
+plt.show()
+```
+
+
+![png](output_72_0.png)
 
